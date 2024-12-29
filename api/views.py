@@ -25,7 +25,9 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Student
 from .serializers import StudentSerializer
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
