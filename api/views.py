@@ -20,14 +20,32 @@
 #         return Response(serializer.errors, status=400)
 
 
+# from rest_framework import viewsets
+# from rest_framework.permissions import IsAuthenticated
+# from .models import Student
+# from .serializers import StudentSerializer
+# from django.http import HttpResponse
+# from django.views.decorators.csrf import csrf_exempt
+
+# @csrf_exempt
+# class StudentViewSet(viewsets.ModelViewSet):
+#     queryset = Student.objects.all()
+#     serializer_class = StudentSerializer
+#     permission_classes = [IsAuthenticated]
+
+#     def perform_create(self, serializer):
+#         serializer.save(added_by=self.request.user)
+
+# def home(request):
+#     return HttpResponse("Welcome to the Student Management System")
+
+
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from .models import Student
 from .serializers import StudentSerializer
 from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 
-@csrf_exempt
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
@@ -38,3 +56,4 @@ class StudentViewSet(viewsets.ModelViewSet):
 
 def home(request):
     return HttpResponse("Welcome to the Student Management System")
+

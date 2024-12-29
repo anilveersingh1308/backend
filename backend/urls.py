@@ -37,9 +37,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('rest_framework.urls')),  # Django REST auth views
     path('api/', include('api.urls')),  # Ensure this points to the correct app
-    path('auth/', include('authentication.urls')), 
+    path('', include('authentication.urls')), 
 ]
-
-
 
 
